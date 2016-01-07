@@ -1,5 +1,7 @@
 package ujaen.git.ppt.smtp;
 
+// Implementa todos los comandos de respuestas y los diferentes estados y errores, se usar√°n en la clase Connection.
+// Vienen definidos los mensajes SMTP.
 public class RFC5321 {
 	
 	public static String MSG_WELCOME 	= "Protocolos de Transporte - Servidor SMTP listo";
@@ -8,7 +10,7 @@ public class RFC5321 {
 	
 	public static final String[] SMTP_REPLY_CODES = {"220","221","250","354"};
 	
-	public static final String[] SMPT_REPLY_MESSAGES ={ "Servicio OK","El servicio est· cerrando el canal de transmisiÛn","Ok","Inicie el envÌo del correo; termine con <CRLF>.<CRLF>"};
+	public static final String[] SMPT_REPLY_MESSAGES ={ "Servicio OK","El servicio est√° cerrando el canal de transmisi√≥n","Ok","Inicie el env√≠o del correo; termine con <CRLF>.<CRLF>"};
 	public static final int R_220=0;
 	public static final int R_221=1;
 	public static final int R_250=2;
@@ -35,7 +37,7 @@ public class RFC5321 {
 	/**
 	 * Error messages
 	 */
-	public static final String[] SMPT_ERROR_MESSAGES ={ "Error de sintaxis","Secuencia errÛnea de comandos","Usuario no local"};
+	public static final String[] SMPT_ERROR_MESSAGES ={ "Error de sintaxis","Secuencia err√≥nea de comandos","Usuario no local"};
 	
 	/** index to the list os error strings*/
 	public static final int E_500_SINTAXERROR=0;
