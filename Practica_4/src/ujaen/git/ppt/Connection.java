@@ -1,5 +1,11 @@
 package ujaen.git.ppt;
 
+// Añadimos la mayoría del código, implementando el método run().
+// Inicialización de los stream de entrada y salida, envío del mensaje de bienvenida y máquina de estados.
+
+
+
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -40,13 +46,13 @@ public class Connection implements Runnable, RFC5322 {
 
 		if (mSocket != null) {
 			try {
-				// Inicializaci�n de los streams de entrada y salida
+				// Inicialización de los streams de entrada y salida
 				DataOutputStream output = new DataOutputStream(
 						mSocket.getOutputStream());
 				BufferedReader input = new BufferedReader(
 						new InputStreamReader(mSocket.getInputStream()));
 
-				// Env�o del mensaje de bienvenida
+				// Envío del mensaje de bienvenida
 				String response = RFC5321.getReply(RFC5321.R_220) + SP + RFC5321.MSG_WELCOME
 						+ RFC5322.CRLF;
 				output.write(response.getBytes());
@@ -57,7 +63,7 @@ public class Connection implements Runnable, RFC5322 {
 					System.out.println("Servidor [Recibido]> " + inputData);
 				
 					
-					// Todo an�lisis del comando recibido
+					// Todo análisis del comando recibido
 					SMTPMessage m = new SMTPMessage(inputData);
 					if(m.getCommand()==null)
 					{
@@ -69,8 +75,8 @@ public class Connection implements Runnable, RFC5322 {
 						
 					}
 
-					// TODO: M�quina de estados del protocolo
-					//comprobaci�n de error
+					// TODO: Máquina de estados del protocolo
+					//comprobación de error
 					if (m.getCommand()!=null){
 					
 						switch (mEstado) 
@@ -121,7 +127,7 @@ public class Connection implements Runnable, RFC5322 {
 					output.flush();
 
 				}
-				System.out.println("Servidor [Conexi�n finalizada]> "
+				System.out.println("Servidor [Conexión finalizada]> "
 						+ mSocket.getInetAddress().toString() + ":"
 						+ mSocket.getPort());
 
