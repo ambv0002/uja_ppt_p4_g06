@@ -1,5 +1,5 @@
 package ujaen.git.ppt.smtp;
-
+// Comprobación de comandos y extracción del ID.
 
 public class SMTPMessage implements RFC5322 {
 
