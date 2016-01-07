@@ -6,6 +6,8 @@ import java.io.StringReader;
 
 import ujaen.git.ppt.smtp.RFC5322;
 
+//La clase "Mail" es usada para dar estructura al mensaje en s√≠, insertando cabeceras y cuerpo del mensaje.
+
 
 public class Mail implements RFC5322{
 	
@@ -41,6 +43,8 @@ public class Mail implements RFC5322{
 		mSize=mMail.length();
 		mIp="";
 	}
+	
+	//Crea un nuevo mensaje objeto con los datos recibidos.
 	
 	public Mail(String from,String to,String host,String ip,String mail) {
 		mMail=mail;
@@ -107,8 +111,8 @@ public class Mail implements RFC5322{
 	}
 	
 	/**
-	 * AÒade una nueva lÌnea al correo
-	 * @param line Nueva lÌnea de correo sin CRLF
+	 * A√±ade una nueva l√≠nea al correo
+	 * @param line Nueva l√≠nea de correo sin CRLF
 	 */
 	
 	public void addMailLine(String line)
@@ -158,7 +162,7 @@ public class Mail implements RFC5322{
 
 	
 	public void addHeader(String header, String value) {
-		//TODO MÈtodo que aÒada cabeceras al correo
+		//TODO M√©todo que a√±ada cabeceras al correo
 		
 	}
 }
