@@ -9,23 +9,23 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 
 /**
- * Protocolos de Transporte Grado de IngenierÌa Telem·tica E. P. S. de Linareas
- * Universidad de JaÈn
+ * Protocolos de Transporte Grado de Ingenier√≠a Telem√°tica E. P. S. de Linareas
+ * Universidad de Ja√©n
  * 
  * Esta clase gestiona los ficheros de un directorio pasado en el constructor
- * para emular un almacÈn de correos electrÛnicos.
+ * para emular un almac√©n de correos electr√≥nicos.
  * 
  * funcionamiento: Crear una carpeta con el mismo nombre del usuario en el
  * directorio de trabajo. Crear dentro de dicha carpeta cuantos ficheros de
- * texto se quiera. Cada uno de esos ficheros representar· un correo electrÛnico
- * diferente por lo que deber·n mantener el formato de la RFC 822.
+ * texto se quiera. Cada uno de esos ficheros representar√° un correo electr√≥nico
+ * diferente por lo que deber√°n mantener el formato de la RFC 822.
  * 
  * Para almacenar la clave del usuario se debe crear en el directorio de trabajo
  * un fichero user.key, donde user es el identificador del usuario concreto. Ese
- * fichero tan solamente debe contener una lÌnea con una cadena sin espacios que
- * ser· la clave.
+ * fichero tan solamente debe contener una l√≠nea con una cadena sin espacios que
+ * ser√° la clave.
  * 
- * @author Juan Carlos Cuevas MartÌnez
+ * @author Juan Carlos Cuevas Mart√≠nez
  * @version 2.0
  * 
  */
@@ -42,7 +42,7 @@ public class Mailbox extends ArrayList<Mail> {
 	protected String mUser = "";
 
 	/**
-	 * Se inicializa el buzÛn con el nombre del usuario
+	 * Se inicializa el buz√≥n con el nombre del usuario
 	 * 
 	 * @param user
 	 */
@@ -52,11 +52,11 @@ public class Mailbox extends ArrayList<Mail> {
 	}
 
 	/**
-	 * Se inicializa el buzÛn con el nombre del usuario
+	 * Se inicializa el buz√≥n con el nombre del usuario
 	 * 
 	 * @param user
 	 */
-	public Mailbox(Mail mail) {
+	public Mailbox(Mail mail) { //Crea un nuevo archivo en el directorio. Devuelve TRUE si se ha creado.
 		mUser = mail.getRcptto();
 
 		this.add(mail);
@@ -193,7 +193,7 @@ public class Mailbox extends ArrayList<Mail> {
 	 *            String that contains the user name in text form
 	 * @return true if the user exists, false otherwise
 	 */
-	public static boolean checkRecipient(String rcpt) {
+	public static boolean checkRecipient(String rcpt) { //Comprueba si un usuario est√° registrado en el correo. Devuelve OK si lo est√°.
 
 		File file = new File(rcpt);
 		if (file.exists() && file.isDirectory()) {
@@ -218,13 +218,13 @@ public class Mailbox extends ArrayList<Mail> {
 	}
 
 	/**
-	 * Ejemplo de implementaciÛn para el comando LIST de POP3 Este mÈtodo
-	 * comprueba el contenido del buzÛn del usuario para generar la respuesta
-	 * que darÌa en comando LIST.
+	 * Ejemplo de implementaci√≥n para el comando LIST de POP3 Este m√©todo
+	 * comprueba el contenido del buz√≥n del usuario para generar la respuesta
+	 * que dar√≠a en comando LIST.
 	 * 
 	 * @return una cadena que contiene la respuesta del servidor al comando LIST
 	 */
-	public String getList() {
+	public String getList() { //Comprobaci√≥n del contenido del buz√≥n. Devuelve el n√∫mero de mensajes.
 		int count = 1;
 		int totalSize = 0;
 		String list = "";
@@ -251,13 +251,13 @@ public class Mailbox extends ArrayList<Mail> {
 	}
 
 	/**
-	 * Comprueba si la clave pasada en el par·metro es correcta
+	 * Comprueba si la clave pasada en el par√°metro es correcta
 	 * 
 	 * @param pass
 	 *            Clave a comprobar
 	 * @return TRUE si las claves son correctas, FALSE en otro caso.
 	 */
-	public boolean checkKey(String pass) {
+	public boolean checkKey(String pass) { //Comprueba si la clave pasada en el par√°metro es correcta. Devuelve TRUE si lo es.
 		File file = new File(mUser + ".key");
 		if (file.exists()) {
 			byte[] data = new byte[(int) file.length()];
